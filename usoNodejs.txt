@@ -1,0 +1,5 @@
+usar terminal: 
+Terminal:Create New Integrated Terminal
+npm i -g serve
+serve -l 3000
+http://localhost:3000/
