@@ -24,11 +24,13 @@ document.addEventListener('DOMContentLoaded',function(){//DOMContentLoaded no ej
           <button class="btn btn-primary mb-1">
             <i class="fa fa-pencil"></i>
           </button>
-          <button class="btn btn-danger mb-1 ml-1">
-            <i class="fa fa-trash"></i>
-          </button>
         </td>     
         `;//innerHTML inserta un html
+
+        const removeBtn = document.createElement('button');
+        removeBtn.classList.add('btn','btn-danger','mb-1');
+        removeBtn.innerHTML = '<i class="fa fa-trash"></i>';
+        row.children[3].appendChild(removeBtn);
     }
 
     btn.onclick = addTodo;
