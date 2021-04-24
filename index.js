@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded',function(){//DOMContentLoaded no ej
     const alert = document.getElementById('alert');
     let id = 1;
 
-    function removeTodo(id){
+    function removeTodo(id){//borra la fila
         document.getElementById(id).remove();
     }
 
@@ -33,13 +33,13 @@ document.addEventListener('DOMContentLoaded',function(){//DOMContentLoaded no ej
         </td>     
         `;//innerHTML inserta un html
 
-        const removeBtn = document.createElement('button');
+        const removeBtn = document.createElement('button');//crea el boton 
         removeBtn.classList.add('btn','btn-danger','mb-1','ml-1');
         removeBtn.innerHTML = '<i class="fa fa-trash"></i>';
-        removeBtn.onclick = function(e){
+        removeBtn.onclick = function(e){//le asigna a ese boton la funcion de borrar la fila
             removeTodo(row.getAttribute('id'));
         };
-        row.children[3].appendChild(removeBtn);
+        row.children[3].appendChild(removeBtn);//agrega el boton a la fila
     }
 
     btn.onclick = addTodo;
