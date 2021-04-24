@@ -1,0 +1,19 @@
+function test(num,f){
+    return f(num),
+}
+
+function dup (num){
+    return num * 2;
+}
+
+test(5,dup);
+
+test(5,function(num){
+    return num * 2;
+});
+
+test(5,(num)=>{
+    return num*2;
+});
+
+test(5,(num) => num*2);
