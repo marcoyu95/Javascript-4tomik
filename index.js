@@ -11,9 +11,24 @@ document.addEventListener('DOMContentLoaded',function(){//DOMContentLoaded no ej
             alert.innerHTML = 'Title and description are required';
             return;
         }
-        
+
         alert.classList.add('d-none');//agrega el d-none, lo oculta
-        
+        const row = table.insertRow();//inserta una fila en la tabla
+        row.innerHTML=`
+        <td>${title.value}</td>
+        <td>${description.value}</td>
+        <td class="text-center">
+          <input type="checkbox">
+        </td>
+        <td class="text-right">
+          <button class="btn btn-primary mb-1">
+            <i class="fa fa-pencil"></i>
+          </button>
+          <button class="btn btn-danger mb-1 ml-1">
+            <i class="fa fa-trash"></i>
+          </button>
+        </td>     
+        `;//innerHTML inserta un html
     }
 
     btn.onclick = addTodo;
