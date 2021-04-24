@@ -3,15 +3,17 @@ document.addEventListener('DOMContentLoaded',function(){//DOMContentLoaded no ej
     const title = document.getElementById('title');//obtengo el input title
     const description = document.getElementById('description');//obtengo el input description
     const table = document.getElementById('table');//obtengo la tabla
+    const alert = document.getElementById('alert');
 
     function addTodo(){
         if(title.value === '' || description.value === ''){ // title.value == '' error ya que 2 == '2' da verdadero; usar 2 === '2' ademas compara el tipo de dato
-            console.error('Title and description are required');
+            alert.classList.remove('d-none');//quita el d-none(oculta el elemento) lo hace visible.
+            alert.innerHTML = 'Title and description are required';
         } else{
             console.log('ok');
         }
     }
-    
+
     btn.onclick = addTodo;
 });
 //DOM document object model, representa el html en forma de objetos para poder usarlos con javascript 
