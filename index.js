@@ -9,10 +9,11 @@ document.addEventListener('DOMContentLoaded',function(){//DOMContentLoaded no ej
         if(title.value === '' || description.value === ''){ // title.value == '' error ya que 2 == '2' da verdadero; usar 2 === '2' ademas compara el tipo de dato
             alert.classList.remove('d-none');//quita el d-none(oculta el elemento) lo hace visible.
             alert.innerHTML = 'Title and description are required';
-        } else{
-            console.log('ok');
-            alert.classList.add('d-none');//agrega el d-none, lo oculta
+            return;
         }
+        
+        alert.classList.add('d-none');//agrega el d-none, lo oculta
+        
     }
 
     btn.onclick = addTodo;
