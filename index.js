@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded',function(){//DOMContentLoaded no ej
             alert.innerHTML = 'Title and description are required';
         } else{
             console.log('ok');
+            alert.classList.add('d-none');//agrega el d-none, lo oculta
         }
     }
 
