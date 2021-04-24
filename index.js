@@ -4,6 +4,11 @@ document.addEventListener('DOMContentLoaded',function(){//DOMContentLoaded no ej
     const description = document.getElementById('description');//obtengo el input description
     const table = document.getElementById('table');//obtengo la tabla
     const alert = document.getElementById('alert');
+    let id = 1;
+
+    function removeTodo(id){
+        document.getElementById(id).remove();
+    }
 
     function addTodo(){
         if(title.value === '' || description.value === ''){ // title.value == '' error ya que 2 == '2' da verdadero; usar 2 === '2' ademas compara el tipo de dato
@@ -14,6 +19,7 @@ document.addEventListener('DOMContentLoaded',function(){//DOMContentLoaded no ej
 
         alert.classList.add('d-none');//agrega el d-none, lo oculta
         const row = table.insertRow();//inserta una fila en la tabla
+        row.setAttribute('id',id++);//agrega un id a la fila nueva para poder indetificarla al querer borrar
         row.innerHTML=`
         <td>${title.value}</td>
         <td>${description.value}</td>
@@ -28,8 +34,11 @@ document.addEventListener('DOMContentLoaded',function(){//DOMContentLoaded no ej
         `;//innerHTML inserta un html
 
         const removeBtn = document.createElement('button');
-        removeBtn.classList.add('btn','btn-danger','mb-1');
+        removeBtn.classList.add('btn','btn-danger','mb-1','ml-1');
         removeBtn.innerHTML = '<i class="fa fa-trash"></i>';
+        removeBtn.onclick = function(e){
+            removeTodo(row.getAttribute('id'));
+        };
         row.children[3].appendChild(removeBtn);
     }
 
