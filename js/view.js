@@ -12,6 +12,10 @@ export default class View {
         this.model = model;
     }
 
+    toogleCompleted(id){
+        this.model.toggleCompleted(id);
+    }
+
     addTodo(title, description){
         const todo = this.model.addTodo(title,description);
         this.createRow(todo);
@@ -29,7 +33,7 @@ export default class View {
         <td>${todo.title}</td>
         <td>${todo.description}</td>
         <td class="text-center">
-          <input type="checkbox">
+          
         </td>
         <td class="text-right">
           <button class="btn btn-primary mb-1">
@@ -37,6 +41,12 @@ export default class View {
           </button>
         </td>     
         `;//innerHTML inserta un html
+
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.checked = todo.completed;
+        checkbox.onclick=() => this.toogleCompleted(todo.id);
+        row.children[2].appendChild(checkbox);//agrega el checkbox a la fila
 
         const removeBtn = document.createElement('button');//crea el boton 
         removeBtn.classList.add('btn','btn-danger','mb-1','ml-1');
